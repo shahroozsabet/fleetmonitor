@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: integration-gateway-service
+---
+spring:
+  profiles: stage
+eureka:
+  client:
+    region: default
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${DISCOVERY_SERVICE_HOST}:${DISCOVERY_SERVICE_PORT}/eureka
+management:
+  info:
+    git:
+      mode: full      

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: integration-config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shahroozsabet/fleetmonitor-config.git

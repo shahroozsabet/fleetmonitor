@@ -1,0 +1,13 @@
+server:
+  port: 8082
+zuul:
+  routes:
+    service:
+      path: /command/**
+      serviceId: integration-service
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+---
+spring:
+  profiles: kubernetes
