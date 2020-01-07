@@ -3,6 +3,8 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 15MB
+server:
+  port: 8090
 ---
 spring:
   profiles: dev
@@ -11,6 +13,9 @@ logging:
     org:
       springframework:
         web: DEBUG
+---
+spring:
+  profiles: dev-cloud
 server:
   port: 0
 ---
