@@ -270,8 +270,8 @@ public class FileValidatorServiceImpl implements FileValidatorService {
                                         Pattern.compile(CommonEnum.PhonePattern.PHONE.getValue())
                                                 .matcher(columns[CSVFieldT.MOBILE.ordinal()].trim()).matches())) {
                                     errors.add(CSVLineErrorDTO.builder().lineNo(lineNo.get()).fileName(fileName).fieldValue(columns[CSVFieldT.MOBILE.ordinal()])
-                                            .fieldName(messageSource.getMessage("Field.mobile", null, new Locale("fa")))
-                                            .errorDescription(messageSource.getMessage("MSG_200104", null, new Locale("fa"))).build());
+                                            .fieldName(messageSource.getMessage("Field.mobile", null, new Locale("en")))
+                                            .errorDescription(messageSource.getMessage("MSG_200104", null, new Locale("en"))).build());
                                 }
                             }
                         } else if (CSVType.A.name().equals(columns[0])) {
@@ -292,8 +292,8 @@ public class FileValidatorServiceImpl implements FileValidatorService {
                                 }
                                 if (!NumberUtils.isDigits(columns[CSVFieldF.YEAR.ordinal()]) || columns[CSVFieldF.YEAR.ordinal()].length() != 4) {
                                     errors.add(CSVLineErrorDTO.builder().lineNo(lineNo.get()).fileName(fileName).fieldValue(columns[CSVFieldF.YEAR.ordinal()])
-                                            .fieldName(messageSource.getMessage("Field.year", null, new Locale("fa")))
-                                            .errorDescription(messageSource.getMessage("MSG_200105", new Integer[]{4}, new Locale("fa"))).build());
+                                            .fieldName(messageSource.getMessage("Field.year", null, new Locale("en")))
+                                            .errorDescription(messageSource.getMessage("MSG_200105", new Integer[]{4}, new Locale("en"))).build());
                                 }
                             }
                         }
