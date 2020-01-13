@@ -6,7 +6,7 @@ services:
     build:
       context: ./integration-config-server
       dockerfile: Dockerfile
-    image: integration-cloud-native/integration-config-server:latest
+    image: fleetmonitor/integration-config-server:latest
     ports:
       - 8888:8888
     networks:
