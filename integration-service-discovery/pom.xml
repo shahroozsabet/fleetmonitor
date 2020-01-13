@@ -11,6 +11,10 @@
     </parent>
     <artifactId>integration-service-discovery</artifactId>
 
+    <properties>
+        <docker.image.name>${project.artifactId}</docker.image.name>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

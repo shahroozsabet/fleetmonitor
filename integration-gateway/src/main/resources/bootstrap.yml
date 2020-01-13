@@ -6,6 +6,7 @@ spring:
   profiles: stage
 eureka:
   client:
+    enabled: true
     region: default
     register-with-eureka: true
     fetch-registry: true
@@ -14,4 +15,7 @@ eureka:
 management:
   info:
     git:
-      mode: full      
+      mode: full
+---
+spring:
+  profiles: stage-kubernetes

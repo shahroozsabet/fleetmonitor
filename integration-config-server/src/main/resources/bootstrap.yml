@@ -6,3 +6,11 @@ spring:
       server:
         git:
           uri: https://github.com/shahroozsabet/fleetmonitor-config.git
+---
+spring:
+  profiles: stage
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GIT_CONFIG_URI}

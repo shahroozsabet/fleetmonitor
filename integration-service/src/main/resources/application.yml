@@ -15,9 +15,7 @@ logging:
         web: DEBUG
 ---
 spring:
-  profiles: dev-cloud
-server:
-  port: 0
+  profiles: stage
 ---
 spring:
   profiles: prod

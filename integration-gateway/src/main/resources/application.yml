@@ -5,9 +5,8 @@ zuul:
     service:
       path: /command/**
       serviceId: integration-service
-      ribbon:
-        ConnectTimeout: 120000
-        ReadTimeout: 120000
+  host:
+    connect-timeout-millis: 30000
 ---
 spring:
-  profiles: kubernetes
+  profiles: stage-kubernetes

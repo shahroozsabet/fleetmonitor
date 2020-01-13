@@ -13,16 +13,19 @@ spring:
   profiles: dev-cloud
   cloud:
     config:
-      discovery:
-        enabled: true
+      uri: http://localhost:8888
 eureka:
   client:
     enabled: true
 ---
 spring:
   profiles: stage
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVICE_HOST}:${CONFIG_SERVICE_PORT}
 eureka:
   client:
+    enabled: true
     region: default
     register-with-eureka: true
     fetch-registry: true
