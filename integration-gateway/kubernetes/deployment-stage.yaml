@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-gateway-deployment
+  labels:
+    app: integration-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: integration-gateway
+  template:
+    metadata:
+      labels:
+        app: integration-gateway
+    spec:
+      containers:
+        - name: integration-gateway
+          image: fleetmonitor/integration-gateway:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082
