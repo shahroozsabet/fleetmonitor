@@ -1,0 +1,12 @@
+cd integration-config-server
+start build-dev.bat
+cd ..
+cd integration-gateway
+start build-dev.bat
+cd ..
+cd integration-service-discovery
+start build-dev.bat
+cd ..
+cd integration-service
+start build-dev.bat
+cd ..
