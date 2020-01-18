@@ -10,10 +10,6 @@
     </parent>
     <artifactId>integration-gateway</artifactId>
 
-    <properties>
-        <docker.image.name>${project.artifactId}</docker.image.name>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,20 +35,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>spring-netflix</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>!kubernetes</value>
+                </property>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
@@ -65,7 +59,13 @@
             </dependencies>
         </profile>
         <profile>
-            <id>kubernetes</id>
+            <id>kubernetes-dependencies</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>kubernetes</value>
+                </property>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
@@ -80,6 +80,25 @@
                     <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>docker-build</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
