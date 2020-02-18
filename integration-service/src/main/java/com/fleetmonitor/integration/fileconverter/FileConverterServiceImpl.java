@@ -4,7 +4,9 @@ import com.fleetmonitor.integration.fileconverter.dto.*;
 import com.fleetmonitor.integration.fileconverter.exception.FileConverterServiceUnavailableException;
 import com.fleetmonitor.integration.util.CommonEnum;
 import com.fleetmonitor.integration.xml.*;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
@@ -27,15 +29,11 @@ import java.util.regex.Pattern;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class FileConverterServiceImpl implements FileConverterService {
 
     private final FileValidatorService fileValidatorService;
     private final MessageSource messageSource;
-
-    public FileConverterServiceImpl(FileValidatorService fileValidatorService, MessageSource messageSource) {
-        this.fileValidatorService = fileValidatorService;
-        this.messageSource = messageSource;
-    }
 
     @Override
     public String convertFile(MultipartFile file) {

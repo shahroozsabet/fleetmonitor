@@ -7,9 +7,11 @@ import com.fleetmonitor.integration.fileconverter.exception.FileConverterService
 import com.fleetmonitor.integration.fileconverter.exception.FileErrorException;
 import com.fleetmonitor.integration.fileconverter.filewriter.FileWriterService;
 import com.fleetmonitor.integration.util.CommonEnum;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.tika.Tika;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MimeTypeUtils;
@@ -32,17 +34,12 @@ import java.util.stream.IntStream;
  */
 @Slf4j
 @Component
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class FileValidatorServiceImpl implements FileValidatorService {
 
     private final MessageSource messageSource;
     private final Tika tika;
     private final FileWriterService fileWriterService;
-
-    public FileValidatorServiceImpl(MessageSource messageSource, Tika tika, FileWriterService fileWriterService) {
-        this.messageSource = messageSource;
-        this.tika = tika;
-        this.fileWriterService = fileWriterService;
-    }
 
     @Override
     public void validateFile(MultipartFile file) {

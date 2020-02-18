@@ -1,8 +1,10 @@
 package com.fleetmonitor.integration.fileconverter.filewriter;
 
 import com.fleetmonitor.integration.fileconverter.exception.FileWriterServiceUnavailableException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
@@ -16,13 +18,10 @@ import java.util.Locale;
  */
 @Component
 @Slf4j
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class FileWriterServiceImpl implements FileWriterService {
 
     private final MessageSource messageSource;
-
-    public FileWriterServiceImpl(MessageSource messageSource) {
-        this.messageSource = messageSource;
-    }
 
     @Override
     public byte[] toByteArray(String text) {

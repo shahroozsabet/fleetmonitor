@@ -1,5 +1,7 @@
 package com.fleetmonitor.integration.fileconverter;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
  * Created by Shahrooz on 12/12/2019.
  */
 @RestController
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class FileConverterController {
 
     private final FileConverterService fileConverterService;
-
-    public FileConverterController(FileConverterService fileConverterService) {
-        this.fileConverterService = fileConverterService;
-    }
 
     /**
      * {@linkplain HttpStatus#CREATED CREATED} for converted XML, or {@linkplain HttpStatus#BAD_REQUEST BAD_REQUEST} with a general error String Json,
