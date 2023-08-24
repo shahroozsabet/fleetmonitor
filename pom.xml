@@ -23,7 +23,7 @@
         <docker.image.name>${project.artifactId}</docker.image.name>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <fleetmonitor-commons.version>0.0.1-SNAPSHOT</fleetmonitor-commons.version>
-        <tika-core.version>1.23</tika-core.version>
+        <tika-core.version>1.28.3</tika-core.version>
     </properties>
 
     <dependencies>
